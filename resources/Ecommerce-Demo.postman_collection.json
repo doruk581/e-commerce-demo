@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "8f27bf7a-4662-4a3a-8de5-9c1f00431f4a",
+		"name": "Ecommerce Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddCartItem",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userID\":\"testuser1\",\n\t\"items\":[\n\t\t{\"productID\":\"66VCHSJNUP\",\"quantity\":2},\n\t\t{\"productID\":\"L9ECAV7KIM\",\"quantity\":1}\n\t\t]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8889/cart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CheckoutCart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userID\":\"testuser1\",\n\t\"email\":\"testuser1@test.com\",\n\t\"address\":{\n\t\"streetAddress\":\"123, Fremont Ave\",\n\t\"state\":\"CA\",\n\t\"city\":\"Sanfrancisco\",\n\t\"country\":\"USA\",\n    \"zipCode\":543444\n\t},\n\t\"creditCard\":{\n\t\t\"number\":\"2222-2222-2222-2222\",\n\t\t\"csv\": 123,\n\t\t\"expirationYear\":2022,\n\t\t\"ExpirationMonth\":12\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8812/checkout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8812",
+					"path": [
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCart",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8889/cart/testuser1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"cart",
+						"testuser1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCart",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8889/cart/testuser1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"cart",
+						"testuser1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProductByID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8888/product/66VCHSJNUP",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"product",
+						"66VCHSJNUP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllProducts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8888/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProcessPayment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"creditCard\":{\n\t\t\"number\":\"2112-1131-1313-1313\",\n\t\t\"csv\": 123,\n\t\t\"expirationMonth\": 11,\n\t\t\"expirationYear\":2020\n\t},\n\t\"amount\":20.34\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8810/payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8810",
+					"path": [
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetShippingQoute",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"address\":{\n\t\"streetAddress\":\"123, Fremont Ave\",\n\t\"state\":\"CA\",\n\t\"city\":\"Sanfrancisco\",\n\t\"country\":\"USA\",\n    \"zipCode\":543444\n\t},\n\t\"cart\":\n\t\t{\n\t\"userID\":\"testuser1\",\n\t\"items\":[\n\t\t{\"productID\":\"testproduct1\",\"quantity\":2},\n\t\t{\"productID\":\"testproduct2\",\"quantity\":1}\n\t\t]\n}\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8811/shipping/getqote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8811",
+					"path": [
+						"shipping",
+						"getqote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PlaceShippingOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"address\":{\n\t\"streetAddress\":\"123, Fremont Ave\",\n\t\"state\":\"CA\",\n\t\"city\":\"Sanfrancisco\",\n\t\"country\":\"USA\",\n    \"zipCode\":543444\n\t},\n\t\"cart\":\n\t\t{\n\t\"userID\":\"testuser1\",\n\t\"items\":[\n\t\t{\"productID\":\"testproduct1\",\"quantity\":2},\n\t\t{\"productID\":\"testproduct2\",\"quantity\":1}\n\t\t]\n}\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8811/shipping/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8811",
+					"path": [
+						"shipping",
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

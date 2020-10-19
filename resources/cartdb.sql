@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS cartdb;
+USE cartdb;
+CREATE TABLE IF NOT EXISTS cart(
+    cartID INT AUTO_INCREMENT,
+    userID VARCHAR(15),
+    productID VARCHAR(15),
+    quantity INT,
+    PRIMARY KEY(cartID),
+    CONSTRAINT UC_Cart UNIQUE (userID,productID)
+)ENGINE=INNODB;
